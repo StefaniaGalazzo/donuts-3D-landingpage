@@ -21,7 +21,7 @@ export default function CTA({ title, subtitle, cta }) {
         castShadow
         color="white"
         fontSize={0.8}
-        font="/fonts/Poppins-Black.ttf"
+        font="public/fonts/Poppins-Black.ttf"
         anchorX="left"
         anchorY="bottom"
         position={[-2, 0, 1]}
@@ -32,7 +32,7 @@ export default function CTA({ title, subtitle, cta }) {
       <Text
         color="white"
         fontSize={0.3}
-        font="/fonts/Poppins-Medidum.ttf"
+        font="public/fonts/Poppins-Medidum.ttf"
         anchorX="left"
         anchorY="top"
         position={[-2, 0, 1]}
@@ -64,7 +64,7 @@ export default function CTA({ title, subtitle, cta }) {
           color="white"
           fontSize={0.13}
           anchorX="center"
-          font="/fonts/Poppins-Medium.ttf"
+          font="public/fonts/Poppins-Medium.ttf"
           anchorY="middle"
           position={[0, 0, 0.11]} // posiziona il testo davanti al bottone
         >
