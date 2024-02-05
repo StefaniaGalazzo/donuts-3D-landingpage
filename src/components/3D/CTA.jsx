@@ -47,11 +47,9 @@ export default function CTA({ title, subtitle, cta }) {
         ref={ref}
         onPointerOver={() => {
           document.body.style.cursor = "pointer";
-          // Altri eventi onPointerOver se necessario
         }}
         onPointerOut={() => {
           document.body.style.cursor = "auto";
-          // Altri eventi onPointerOut se necessario
         }}
       >
         {/* Bottone (box) */}
