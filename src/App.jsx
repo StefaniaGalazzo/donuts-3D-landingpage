@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./components/3D/Experience";
+import { Route, Routes } from "react-router-dom";
 
 const Left50 = styled.div`
   position: absolute;
@@ -25,26 +26,35 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={null}>
-        <Canvas
-          flat
-          gl={{ antialias: true }}
-          dpr={[1, 1.5]}
-          camera={cameraSettings}
-        >
-          <Experience speed={speed} />
-        </Canvas>
-      </Suspense>
-      <Left50>
-        <input
-          type="range"
-          min="0"
-          max="10"
-          value={speed}
-          step="1"
-          onChange={(e) => set(e.target.value)}
+      <Routes>
+        <Route
+          path="/donuts-3D-landingpage"
+          element={
+            <>
+              <Suspense fallback={null}>
+                <Canvas
+                  flat
+                  gl={{ antialias: true }}
+                  dpr={[1, 1.5]}
+                  camera={cameraSettings}
+                >
+                  <Experience speed={speed} />
+                </Canvas>
+              </Suspense>
+              <Left50>
+                <input
+                  type="range"
+                  min="0"
+                  max="10"
+                  value={speed}
+                  step="1"
+                  onChange={(e) => set(e.target.value)}
+                />
+              </Left50>
+            </>
+          }
         />
-      </Left50>
+      </Routes>
     </>
   );
 }
