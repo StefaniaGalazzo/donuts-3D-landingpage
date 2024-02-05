@@ -27,7 +27,7 @@ const MobileOnly = styled.div`
   color: white;
   font-size: 1rem;
   top: 50%;
-  left: 45%;
+  left: 40%;
   box-shadow: 0 0 21px -3px rgba(0, 0, 0, 0.8);
   animation: opacity 3.5s ease-in-out forwards, rotateDevice 1.5s ease-in-out;
 `;
