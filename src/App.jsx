@@ -6,6 +6,7 @@ import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./components/3D/Experience";
 import { Route, Routes } from "react-router-dom";
+import { MdOutlineFlipCameraAndroid } from "react-icons/md";
 
 const Left50 = styled.div`
   position: absolute;
@@ -14,8 +15,26 @@ const Left50 = styled.div`
   transform: rotate(-90deg);
 `;
 
+const MobileOnly = styled.div`
+  position: absolute;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 50px;
+  padding: 13px 21px;
+  background: blue;
+  color: white;
+  font-size: 1rem;
+  top: 50%;
+  left: 45%;
+  box-shadow: 0 0 21px -3px rgba(0, 0, 0, 0.8);
+  animation: opacity 3.5s ease-in-out forwards, rotateDevice 1.5s ease-in-out;
+`;
+
 function App() {
   const [speed, set] = useState(1);
+  const deviceWidth = window.innerWidth;
 
   const cameraSettings = {
     position: [0, 0, 20],
@@ -41,6 +60,14 @@ function App() {
                   <Experience speed={speed} />
                 </Canvas>
               </Suspense>
+
+              {deviceWidth <= 768 && (
+                <MobileOnly>
+                  <MdOutlineFlipCameraAndroid size={30} />
+                  Rotate your device!
+                  <MdOutlineFlipCameraAndroid size={30} />
+                </MobileOnly>
+              )}
               <Left50>
                 <input
                   type="range"
