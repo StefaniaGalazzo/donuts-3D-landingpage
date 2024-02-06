@@ -62,7 +62,7 @@ export default function CTA({ title, subtitle, cta }) {
           color="white"
           fontSize={0.13}
           anchorX="center"
-          font="/fonts/Poppins-Medium.ttf"
+          font="public/fonts/Poppins-Medium.ttf"
           anchorY="middle"
           position={[0, 0, 0.11]} // posiziona il testo davanti al bottone
         >
