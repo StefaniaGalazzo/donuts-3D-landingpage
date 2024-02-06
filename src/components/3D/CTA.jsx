@@ -21,10 +21,10 @@ export default function CTA({ title, subtitle, cta }) {
         castShadow
         color="white"
         fontSize={0.8}
-        font="/fonts/Poppins-Black.ttf"
+        font="public/fonts/Poppins-Black.ttf"
         anchorX="left"
         anchorY="bottom"
-        position={[-2, 0, 1]}
+        position={[-1.9, 0, 1]}
       >
         {title}
       </Text>
@@ -32,17 +32,17 @@ export default function CTA({ title, subtitle, cta }) {
       <Text
         color="white"
         fontSize={0.3}
-        font="/fonts/Poppins-Medidum.ttf"
+        font="public/fonts/Poppins-Medidum.ttf"
         anchorX="left"
         anchorY="top"
-        position={[-2, 0, 1]}
+        position={[-1.9, 0, 1]}
       >
         {subtitle}
       </Text>
 
       {/* Bottone CTA */}
       <group
-        position={[-1.5, -0.8, 1]}
+        position={[-1.4, -0.8, 1]}
         onClick={() => console.log("clicked")}
         ref={ref}
         onPointerOver={() => {
