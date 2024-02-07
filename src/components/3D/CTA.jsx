@@ -1,10 +1,17 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import { Text } from "@react-three/drei";
 import { useRef } from "react";
 
 export default function CTA({ title, subtitle, cta }) {
+  const navigateTo = useNavigate();
   const ref = useRef();
+
+  const handleButtonClick = () => {
+    console.log("Button clicked");
+    navigateTo("/donuts-3D-landingpage/menu");
+  };
   return (
     <group position={[1.5, 0, 0]}>
       <mesh>
@@ -43,7 +50,7 @@ export default function CTA({ title, subtitle, cta }) {
       {/* Bottone CTA */}
       <group
         position={[-1.4, -0.8, 1]}
-        onClick={() => console.log("clicked")}
+        onClick={handleButtonClick}
         ref={ref}
         onPointerOver={() => {
           document.body.style.cursor = "pointer";
