@@ -38,7 +38,7 @@ export default function Home() {
     position: [0, 0, 20],
     fov: 20,
     near: 0.5,
-    far: 105,
+    far: 135,
   };
   return (
     <>

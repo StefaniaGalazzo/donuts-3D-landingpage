@@ -13,7 +13,7 @@ export default function Donuts({
 }) {
   return (
     <>
-      <color attach="background" args={["#fbadd5"]} />
+      {/* <color attach="background" args={["#fbadd5"]} /> */}
       {Array.from({ length: count }, (_, i) => (
         <Donut
           key={i}

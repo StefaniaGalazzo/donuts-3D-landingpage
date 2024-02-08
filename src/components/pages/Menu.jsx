@@ -4,18 +4,28 @@ import { useState } from "react";
 
 export default function Menu() {
   // eslint-disable-next-line no-unused-vars
-  const [elPosition, setElPosition] = useState([-3, 0.5, 0]);
+  // const [elPosition, setElPosition] = useState();
   const [donutIngredient, setDonutIngredient] = useState({
-    donut: "",
-    glaze: { color: "pink", flavor: "Strawberry" },
+    donut: { type: "Normal", color: "rgb(230,130,30)" },
+    donutType: [
+      { type: "Normal", color: "rgb(230,130,30)" },
+      { type: "Choco", color: "maroon" },
+      { type: "Vanilla", color: "rgb(250,150,50)" },
+    ],
+    glaze: { color: "rgb(200,250,250)", flavor: "Sugar" },
+    // glaze: { color: "rgb(245,240,240)", flavor: "Sugar" },
     glazeOptions: [
-      { color: "pink", flavor: "Strawberry" },
+      { color: "hotpink", flavor: "Strawberry" },
       {
-        color: "orange",
-        flavor: "Orange",
+        color: "yellow",
+        flavor: "Citrus",
       },
       {
-        color: "brown",
+        color: "lime",
+        flavor: "Hulk",
+      },
+      {
+        color: "rgb(180,8,2)",
         flavor: "Velvet",
       },
       {
@@ -35,21 +45,75 @@ export default function Menu() {
         style={{
           position: "relative",
           height: "100%",
-          border: "1px solid blue",
         }}
       >
         <ExperienceMenu
-          position={elPosition}
+          position={[-3, 0.5, 0]} //initial [-3, 0.5, 0]
           rotation={[-1, 0.6, 0]}
           donutIngredient={donutIngredient}
         />
-        <section style={{ position: "absolute", right: "38%", top: "40%" }}>
+        <section style={{ position: "absolute", right: "35%", top: "25%" }}>
           <h3 style={{ border: "1px solid pink", padding: "10px 20px" }}>
             Choose Your Donut
           </h3>
           <div className="actions">
             <div style={{ border: "1px solid pink", padding: "10px 20px" }}>
-              Confetti
+              Donut Type: <br />
+              {donutIngredient.donutType.map((radio, indx) => (
+                <label key={indx}>
+                  <input
+                    type="radio"
+                    name="donutType"
+                    value={radio.type}
+                    checked={donutIngredient.donut.type === radio.type}
+                    onChange={() => {
+                      setDonutIngredient({
+                        ...donutIngredient,
+                        donut: {
+                          ...donutIngredient.donut,
+                          type: radio.type,
+                          color: radio.color,
+                        },
+                      });
+                    }}
+                  />
+                  {radio.type}
+                </label>
+              ))}
+            </div>
+
+            <div style={{ border: "1px solid pink", padding: "10px 20px" }}>
+              Glaze:
+              <br />
+              <select
+                value={donutIngredient.glaze.flavor}
+                onChange={(e) => {
+                  const selectedValue = e.target.value;
+                  const selectedGlaze =
+                    donutIngredient.glazeOptions.find(
+                      (option) => option.color === selectedValue
+                    ) || {};
+                  setDonutIngredient({
+                    ...donutIngredient,
+                    glaze: selectedGlaze,
+                  });
+                }}
+              >
+                <option value={donutIngredient.glaze.color}>
+                  {donutIngredient.glaze.flavor}
+                </option>
+                {donutIngredient.glazeOptions.map((option, index) => {
+                  return (
+                    <option key={index} value={option.color}>
+                      {option.flavor}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <div style={{ border: "1px solid pink", padding: "10px 20px" }}>
+              Confetti:
+              <br />
               <form style={{ display: "flex", alignItems: "center" }}>
                 <input
                   type="checkbox"
@@ -87,33 +151,16 @@ export default function Menu() {
                 <label htmlFor="squared">Squared</label>
               </form>
             </div>
-            <div style={{ border: "1px solid pink", padding: "10px 20px" }}>
-              Glaze
-              <select
-                onChange={(e) => {
-                  const selectedValue = e.target.value;
-                  const selectedGlaze =
-                    donutIngredient.glazeOptions.find(
-                      (option) => option.color === selectedValue
-                    ) || {};
-                  setDonutIngredient({
-                    ...donutIngredient,
-                    glaze: selectedGlaze,
-                  });
-                }}
-              >
-                {donutIngredient.glazeOptions.map((option, index) => {
-                  return (
-                    <option key={index} value={option.color}>
-                      {option.flavor}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <div style={{ border: "1px solid pink", padding: "10px 20px" }}>
-              Donut
-            </div>
+            <button
+              className="order"
+              style={{
+                width: "100%",
+                margin: "15px 0",
+                padding: "10px 20px",
+              }}
+            >
+              Order
+            </button>
           </div>
         </section>
       </div>

@@ -16,14 +16,14 @@ const GlazedDonut = ({ props, position, donutIngredient, rotation }) => {
           receiveShadow
           material-color={donutIngredient.glaze.color}
           geometry={nodes.Object_2.geometry}
-          material={materials.aiStandardSurface1SG}
+          material={materials.aiStandardSurface4SG}
         />
         <mesh
           castShadow
           receiveShadow
           material-color={donutIngredient.glaze.color}
           geometry={nodes.Object_3.geometry}
-          material={materials.aiStandardSurface1SG}
+          material={materials.aiStandardSurface4SG}
         />
         {/* </group> */}
         {/* <group id="donut"> */}
@@ -32,6 +32,7 @@ const GlazedDonut = ({ props, position, donutIngredient, rotation }) => {
           receiveShadow
           geometry={nodes.Object_4.geometry}
           material={materials.aiStandardSurface3SG}
+          material-color={donutIngredient.donut.color}
         />
         {/* </group> */}
         {/* <group id="squared-confetti"> */}
@@ -214,4 +215,4 @@ const GlazedDonut = ({ props, position, donutIngredient, rotation }) => {
 };
 
 export default GlazedDonut;
-useGLTF.preload("./models/glazed-donut.gltf");
+// useGLTF.preload("./models/glazed-donut.gltf");

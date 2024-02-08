@@ -3,6 +3,11 @@
 import { OrbitControls, SoftShadows } from "@react-three/drei";
 import GlazedDonut from "./GlazedDonut";
 import { Canvas } from "@react-three/fiber";
+import {
+  DepthOfField,
+  EffectComposer,
+  // TiltShift2,
+} from "@react-three/postprocessing";
 
 export default function ExperienceMenu({
   donutIngredient,
@@ -12,7 +17,7 @@ export default function ExperienceMenu({
   return (
     <Canvas
       shadows
-      gl={{ antialias: false }}
+      gl={{ antialias: true }}
       camera={{ position: [2.8, 0.4, 4.5], fov: 70 }}
     >
       <GlazedDonut
@@ -20,28 +25,36 @@ export default function ExperienceMenu({
         position={position}
         rotation={rotation}
       />
-      <color attach="background" args={["#f0f0f0"]} />
-      <fog attach="fog" args={["#f0f0f0", 0, 20]} />
-      <ambientLight intensity={0.5} />
+      <color attach="background" args={["rgb(220,250,255)"]} />
+      <fog attach="fog" args={["#f0f0f0", 6, 20]} />
+      <ambientLight intensity={0.4} />
       <directionalLight
         intensity={2}
-        position={[2, 35, -5]}
+        position={[20, 60, 20]}
         castShadow
         shadow-mapSize={1024}
         shadow-bias={-0.0001}
       />
 
       <mesh
-        rotation={[-Math.PI / 2, -0.08, 0]}
-        position={[0, -3, 0]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        position={[0, -3.3, 0]}
         receiveShadow
+        frustumCulled={false}
       >
-        <planeGeometry args={[30, 10, 1, 1]} />
+        <planeGeometry args={[100, 100, 1, 1]} />
         <shadowMaterial transparent opacity={0.5} />
         {/* <meshBasicMaterial color="rgb(119, 0, 113)" /> */}
       </mesh>
-      <SoftShadows size={250} samples={80} />
-      <OrbitControls />
+      <SoftShadows size={150} samples={80} />
+      <OrbitControls
+      // makeDefault
+      // minPolarAngle={0}
+      // maxPolarAngle={Math.PI / 2}
+      />
+      <EffectComposer multisampling={30}>
+        <DepthOfField target={[0, 0, 50]} focalLength={0.3} bokehScale={0} />
+      </EffectComposer>
     </Canvas>
   );
 }
