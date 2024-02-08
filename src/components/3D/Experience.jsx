@@ -30,7 +30,10 @@ export default function Experience({ speed }) {
         color="pink"
       />
       <Environment preset="sunset" />
+
       <Donuts speed={speed} />
+      <fog attach="fog" args={["", 105, 115]} color={"#fbadd5"} />
+      <color attach="background" args={["#fbadd5"]} />
 
       <Shop />
       <CTA
@@ -38,11 +41,11 @@ export default function Experience({ speed }) {
         subtitle={"So light to make you fly"}
         cta={"Order now"}
       />
-      <EffectComposer multisampling={3}>
+      <EffectComposer multisampling={5}>
         <DepthOfField
-          target={[0, 0, 33]}
+          target={[0, 0, 40]}
           focalLength={0.7}
-          bokehScale={7}
+          bokehScale={5}
           height={700}
         />
         <ToneMapping />
