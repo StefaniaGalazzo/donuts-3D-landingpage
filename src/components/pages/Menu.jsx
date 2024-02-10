@@ -1,10 +1,9 @@
+// import { proxy, useProxy } from "valtio";
 import { Suspense } from "react";
 import ExperienceMenu from "../3D/ExperienceMenu";
 import { useState } from "react";
 
 export default function Menu() {
-  // eslint-disable-next-line no-unused-vars
-  // const [elPosition, setElPosition] = useState();
   const [donutIngredient, setDonutIngredient] = useState({
     donut: { type: "Normal", color: "rgb(230,130,30)" },
     donutType: [
@@ -13,7 +12,6 @@ export default function Menu() {
       { type: "Vanilla", color: "rgb(250,150,50)" },
     ],
     glaze: { color: "rgb(200,250,250)", flavor: "Sugar" },
-    // glaze: { color: "rgb(245,240,240)", flavor: "Sugar" },
     glazeOptions: [
       { color: "hotpink", flavor: "Strawberry" },
       {
@@ -34,8 +32,8 @@ export default function Menu() {
       },
     ],
     confetti: {
-      rounded: false,
-      squared: false,
+      rounded: true,
+      squared: true,
     },
   });
 
@@ -48,7 +46,7 @@ export default function Menu() {
         }}
       >
         <ExperienceMenu
-          position={[-3, 0.5, 0]} //initial [-3, 0.5, 0]
+          position={[-3, 0, 0]} //initial [-3, 0.5, 0]
           rotation={[-1, 0.6, 0]}
           donutIngredient={donutIngredient}
         />

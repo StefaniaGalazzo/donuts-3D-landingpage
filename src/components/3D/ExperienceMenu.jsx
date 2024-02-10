@@ -1,13 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 import { OrbitControls, SoftShadows } from "@react-three/drei";
-import GlazedDonut from "./GlazedDonut";
 import { Canvas } from "@react-three/fiber";
-import {
-  DepthOfField,
-  EffectComposer,
-  // TiltShift2,
-} from "@react-three/postprocessing";
+import GlazedDonut from "./GlazedDonut/GlazedDonut";
+import { DepthOfField, EffectComposer } from "@react-three/postprocessing";
 
 export default function ExperienceMenu({
   donutIngredient,
