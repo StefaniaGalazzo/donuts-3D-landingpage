@@ -1,0 +1,87 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-undef */
+import { animated } from "@react-spring/three";
+
+export default function ConfettiSquared({ position, nodes, materials }) {
+  return (
+    <>
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_5.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_6.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_7.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_8.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_9.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_10.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_11.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_12.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_13.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_14.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+      <animated.mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_15.geometry}
+        material={materials.aiStandardSurface2SG}
+        position={position}
+      />
+    </>
+  );
+}
